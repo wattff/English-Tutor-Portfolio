@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English with Rada | Частные уроки английского языка</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B5CF6;
+            --primary-hover: #7C3AED;
+            --accent: #10B981;
+            --accent-pink: #EC4899;
+            --bg-dark: #0F172A;
+            --bg-card: #1E293B;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --gradient: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+            --gradient-subtle: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Шапка */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-btn {
+            background: var(--gradient);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(236, 72, 153, 0.5);
+        }
+
+        /* Hero Секция */
+        .hero {
+            padding: 170px 20px 90px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .hero-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 160px;
+            height: 160px;
+            background: var(--primary);
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(139, 92, 246, 0.15);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Общие стили секций */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 90px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        /* Калькулятор уровня и целeй */
+        .calc-container {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .calc-group {
+            margin-bottom: 25px;
+        }
+
+        .calc-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .calc-select {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg-dark);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .calc-select:focus {
+            border-color: var(--primary);
+        }
+
+        .calc-result {
+            background: var(--gradient-subtle);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .result-title {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-pink);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .result-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar-bg {
+            background: rgba(255, 255, 255, 0.1);
+            height: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 40%;
+            background: var(--gradient);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        /* Табы и Цены */
+        .price-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .toggle-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding: 12px 28px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .toggle-btn.active {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .price-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .price-card.popular {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: -15px;
+            right: 25px;
+            background: var(--gradient);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .price-val {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 20px 0;
+            color: #fff;
+        }
+
+        .price-val span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        /* Отзывы */
+        .filter-btns {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: white;
+        }
+
+        /* FAQ Аккордеон */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: 16px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+
+        .faq-question {
+            padding: 22px 25px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 25px 22px;
+            color: var(--text-muted);
+            display: none;
+            line-height: 1.7;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-item.open .faq-question span {
+            transform: rotate(45deg);
+        }
+
+        .faq-question span {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: var(--primary);
+        }
+
+        /* Модальное окно записи */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 480px;
+            width: 90%;
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+        }
+
+        /* Футер */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            margin-top: 80px;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 140px;
+            }
+            .calc-container {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">✨ English with Rada</div>
+            <ul class="nav-links">
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#calc">Расчет программы</a></li>
+                <li><a href="#prices">Тарифы</a></li>
+                <li><a href="#reviews">Отзывы</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <button class="cta-btn" onclick="openModal()">Записаться</button>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🔥 Набор учеников на новый сезон</div>
+            <h1>Английский для жизни и успешной <span>карьеры</span></h1>
+            <p>Преодолейте языковой барьер и заговорите уверенно с репетитором Радой. Персональные интерактивные уроки B1+, подготовка к экзаменам и разговорная практика.</p>
+            <button class="cta-btn" style="font-size: 1.1rem; padding: 15px 35px;" onclick="openModal()">Пройти бесплатный пробный урок</button>
+        </div>
+        <div class="hero-card">
+            <div class="stat-item">
+                <div class="stat-icon">🎓</div>
+                <div>
+                    <h3>Персональная программа</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Индивидуальный трек под ваши цели</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">🗣️</div>
+                <div>
+                    <h3>70% практики речи</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Разговор от теории к живой речи</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">💻</div>
+                <div>
+                    <h3>Интерактивная доска</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Геймификация, видео и сленг</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="section" id="about">
+        <h2 class="section-title">Почему ученики выбирают <span>мои уроки</span>?</h2>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Живой язык без зубрежки</h3>
+                <p>Учим современный английский, идиомы, сленг и актуальную лексику из сериалов, подкастов и реального общения.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Четкая структура и прогресс</h3>
+                <p>Каждое занятие имеет ясную цель. Вы всегда видите свои успехи и трекинг новых выученных фраз.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤝</div>
+                <h3>Комфортная атмосфера</h3>
+                <p>Никакого страха сделать ошибку. Поддержка и дружественная среда, в которой комфортно начинать говорить.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Интерактивный Калькулятор -->
+    <section class="section" id="calc">
+        <h2 class="section-title">Рассчитайте ваш <span>путь к цели</span></h2>
+        <div class="calc-container">
+            <div>
+                <div class="calc-group">
+                    <label>Ваш текущий уровень:</label>
+                    <select class="calc-select" id="currentLevel" onchange="updateCalc()">
+                        <option value="1">Starter / Beginner (A1)</option>
+                        <option value="2">Elementary (A2)</option>
+                        <option value="3" selected>Intermediate (B1)</option>
+                        <option value="4">Upper-Intermediate (B2)</option>
+                    </select>
+                </div>
+                <div class="calc-group">
+                    <label>Ваша главная цель:</label>
+                    <select class="calc-select" id="targetGoal" onchange="updateCalc()">
+                        <option value="speak">Уверенно заговорить в путешествиях</option>
+                        <option value="work">Работа / Собеседование в IT или международную компанию</option>
+                        <option value="exam">Сдача международная экзаменов</option>
+                    </select>
+                </div>
+            </div>
+            <div class="calc-result">
+                <div class="result-title">Ориентировочное время достижения цели:</div>
+                <div class="result-value" id="calcTime">3 - 4 месяца</div>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">При интенсивности занятий 2-3 раза в неделю + выполнение рекомендаций.</p>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="calcProgress" style="width: 65%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Тарифы -->
+    <section class="section" id="prices">
+        <h2 class="section-title">Удобные <span>форматы обучения</span></h2>
+        
+        <div class="price-toggle">
+            <button class="toggle-btn active" onclick="setPricePeriod('single')">Оплата за урок</button>
+            <button class="toggle-btn" onclick="setPricePeriod('month')">Абонемент на месяц (-15%)</button>
+        </div>
+
+        <div class="grid-3">
+            <div class="price-card">
+                <div>
+                    <h3>Разговорный клуб</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">В мини-группах до 5 человек</p>
+                    <div class="price-val" id="p1">$8 <span>/ урок</span></div>
+                    <ul class="features-list">
+                        <li>Практика речи 60 минут</li>
+                        <li>Актуальные темы и дискуссии</li>
+                        <li>Разбор лексики после урока</li>
+                    </ul>
+                </div>
+                <button class="cta-btn" onclick="openModal()">Выбрать</button>
+            </div>
+
+            <div class="price-card popular">
+                <div class="badge-popular">ПОПУЛЯРНЫЙ</div>
+                <div>
+                    <h3>Индивидуальный</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">1 на 1 с репетитором</p>
+                    <div class="price-val" id="p2">$18 <span>/ урок</span></div>
+                    <ul class="features-list">
+                        <li>Персональная программа</li>
+                        <li>Гибкий график уроков</li>
+                        <li>Проверка д/з и поддержка в Telegram</li>
+                        <li>Интерактивные доски Miro/Notion</li>
+                    </ul>
+                </div>
+                <button class="cta-btn" onclick="openModal()">Записаться</button>
+            </div>
+
+            <div class="price-card">
+                <div>
+                    <h3>Интенсив / Экзамены</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">Ускоренная подготовка</p>
+                    <div class="price-val" id="p3">$22 <span>/ урок</span></div>
+                    <ul class="features-list">
+                        <li>Подготовка к собеседованию / экзамену</li>
+                        <li>Разбор специализированной темы</li>
+                        <li>Аудио и видео материалы 24/7</li>
+                    </ul>
+                </div>
+                <button class="cta-btn" onclick="openModal()">Выбрать</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="section" id="reviews">
+        <h2 class="section-title">Что говорят <span>ученики</span></h2>
+        
+        <div class="filter-btns">
+            <button class="filter-btn active" onclick="filterReviews('all')">Все отзывы</button>
+            <button class="filter-btn" onclick="filterReviews('speak')">Разговорный</button>
+            <button class="filter-btn" onclick="filterReviews('work')">Для работы</button>
+        </div>
+
+        <div class="grid-3" id="reviewsGrid">
+            <div class="review-card" data-cat="speak">
+                <div class="review-author">
+                    <div class="avatar">АН</div>
+                    <div>
+                        <h4 style="color:#fff;">Анна</h4>
+                        <p style="color:var(--text-muted); font-size:0.85rem;">Цель: Разговорный английский</p>
+                    </div>
+                </div>
+                <p style="color:var(--text-muted);">«Занимаюсь с Радой 3 месяца. Перестала бояться говорить во время поездок! Уроки проходят супер легко и быстро.»</p>
+            </div>
+
+            <div class="review-card" data-cat="work">
+                <div class="review-author">
+                    <div class="avatar" style="background: linear-gradient(135deg, #10B981, #3B82F6);">ДМ</div>
+                    <div>
+                        <h4 style="color:#fff;">Дмитрий</h4>
+                        <p style="color:var(--text-muted); font-size:0.85rem;">Цель: Собеседование в IT</p>
+                    </div>
+                </div>
+                <p style="color:var(--text-muted);">«Успешно прошел собеседование в иностранную компанию! Рада помогла подготовить самопрезентацию и технические ответы.»</p>
+            </div>
+
+            <div class="review-card" data-cat="speak">
+                <div class="review-author">
+                    <div class="avatar" style="background: linear-gradient(135deg, #EC4899, #F59E0B);">ЕЛ</div>
+                    <div>
+                        <h4 style="color:#fff;">Елена</h4>
+                        <p style="color:var(--text-muted); font-size:0.85rem;">Цель: Уровень B2</p>
+                    </div>
+                </div>
+                <p style="color:var(--text-muted);">«Очень классные интерактивные материалы. Учим не скучные правила из учебника, а живые выражения.»</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <h2 class="section-title">Часто задаваемые <span>вопросы</span></h2>
+        <div class="faq-container">
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Как проходит первый пробный урок? <span>+</span></div>
+                <div class="faq-answer">Это короткая встреча (20-30 минут), где мы знакомимся, определяем ваш текущий уровень, обсуждаем цели и выстраиваем план обучения.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">На какой платформе проходят занятия? <span>+</span></div>
+                <div class="faq-answer">Занятия проходят онлайн в Zoom / Google Meet с использованием интерактивных онлайн-досок, где сохраняются все ваши материалы.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Можно ли переносить уроки? <span>+</span></div>
+                <div class="faq-answer">Да, урок можно бесплатно перенести, если предупредить за 4 часа до его начала.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <p>© 2026 English with Rada. Сделано с любовью к языкам. 💜</p>
+        <p style="font-size: 0.85rem; margin-top: 10px;">Telegram для связи: <a href="https://t.me/wwattf" style="color: var(--primary); text-decoration: none;">@wwattf</a></p>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <button class="close-modal" onclick="closeModal()">✕</button>
+            <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Запись на урок ✨</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Оставьте контакты, и я свяжусь с вами в течение часа для уточнения времени пробного занятия.</p>
+            
+            <form onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label>Ваше имя</label>
+                    <input type="text" class="form-input" placeholder="Как к вам обращаться?" required>
+                </div>
+                <div class="form-group">
+                    <label>Telegram / Никнейм или Номер</label>
+                    <input type="text" class="form-input" placeholder="@username или +7..." required>
+                </div>
+                <button type="submit" class="cta-btn" style="width: 100%; padding: 14px; margin-top: 10px;">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Интерактивный Калькулятор
+        function updateCalc() {
+            const level = document.getElementById('currentLevel').value;
+            const goal = document.getElementById('targetGoal').value;
+            const timeEl = document.getElementById('calcTime');
+            const progressEl = document.getElementById('calcProgress');
+
+            let months = "3 - 4 месяца";
+            let progress = "65%";
+
+            if (level === "1") {
+                months = "6 - 8 месяцев";
+                progress = "35%";
+            } else if (level === "2") {
+                months = "4 - 6 месяцев";
+                progress = "50%";
+            } else if (level === "3") {
+                months = "2 - 4 месяца";
+                progress = "75%";
+            } else if (level === "4") {
+                months = "1 - 2 месяца";
+                progress = "90%";
+            }
+
+            timeEl.innerText = months;
+            progressEl.style.width = progress;
+        }
+
+        // Переключение цен
+        function setPricePeriod(period) {
+            const btns = document.querySelectorAll('.price-toggle .toggle-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            
+            const p1 = document.getElementById('p1');
+            const p2 = document.getElementById('p2');
+            const p3 = document.getElementById('p3');
+
+            if (period === 'single') {
+                btns[0].classList.add('active');
+                p1.innerHTML = '$8 <span>/ урок</span>';
+                p2.innerHTML = '$18 <span>/ урок</span>';
+                p3.innerHTML = '$22 <span>/ урок</span>';
+            } else {
+                btns[1].classList.add('active');
+                p1.innerHTML = '$55 <span>/ месяц (8 уроков)</span>';
+                p2.innerHTML = '$122 <span>/ месяц (8 уроков)</span>';
+                p3.innerHTML = '$149 <span>/ месяц (8 уроков)</span>';
+            }
+        }
+
+        // Фильтрация отзывов
+        function filterReviews(category) {
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.review-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-cat') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // FAQ Аккордеон
+        function toggleFaq(element) {
+            element.classList.toggle('open');
+        }
+
+        // Модальное окно
+        function openModal() {
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('Спасибо за заявку! Я напишу вам в Telegram в ближайшее время.');
+            closeModal();
+            window.open('https://t.me/wwattf', '_blank');
+        }
+    </script>
+</body>
+</html>
